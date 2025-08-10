@@ -1,6 +1,5 @@
-// scrape-notifications.js
-const puppeteer = require('puppeteer');
-const fs = require('fs');
+import puppeteer from 'puppeteer';
+import fs from 'fs';
 
 (async () => {
   const url = "https://www.imsnsit.org/imsnsit/notifications.php";

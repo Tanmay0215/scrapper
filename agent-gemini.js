@@ -1,11 +1,11 @@
-// This agent reads notices.json, sends the data to Gemini AI SDK, and formats the output in a fixed JSON format.
-
-const fs = require('fs');
-const { GoogleGenerativeAI } = require('@google/genai');
+import fs from 'fs';
+import { GoogleGenAI } from '@google/genai';
+import dotenv from 'dotenv';
+dotenv.config();
 
 // Load your Gemini API key from environment or config
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const genAI = new GoogleGenerativeAI({ apiKey: GEMINI_API_KEY });
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY || "AIzaSyC8nH8h04EFA8uyK-BfPIHowCJA2uZHly8";
+const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
 
 // Read the scraped data
 const rawData = fs.readFileSync('notices.json', 'utf-8');
@@ -15,9 +15,11 @@ const notices = JSON.parse(rawData);
 const formatPrompt = `Format the following array of arrays into a JSON array of objects with keys: date, subject, published_by.\nInput: ${JSON.stringify(notices)}\nOutput format: [ { "date": "...", "subject": "...", "published_by": "..." }, ... ]`;
 
 async function formatNotices() {
-    const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
-    const result = await model.generateContent(formatPrompt);
-    const text = result.response.text();
+    const result = await ai.models.generateContent({
+        model: "gemini-2.5-flash",
+        contents: formatPrompt,
+    });
+    const text = result.text;
     let formatted;
     try {
         formatted = JSON.parse(text);

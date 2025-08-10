@@ -1,7 +1,7 @@
 // index.js
 // This file provides a simple CLI to run either ims-scrapper.js or agent-gemini.js
 
-const { execSync } = require('child_process');
+import { execSync } from 'child_process';
 
 const args = process.argv.slice(2);
 

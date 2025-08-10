@@ -1,6 +1,17 @@
 {
+  "name": "scrapper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node agent-gemini.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
   "dependencies": {
     "@google/genai": "^1.13.0",
+    "dotenv": "^17.2.1",
     "puppeteer": "^24.16.0"
   }
 }
