@@ -1,4 +1,10 @@
+```json
 [
+  {
+    "date": "10-08-2025",
+    "subject": "Interview Schedule 11/08/2025 for Steering Committee – Innovision TechFest 2025",
+    "published_by": "VIJAY KUMAR BOHAT, ASSISTANT PROFESSOR, COMPUTER SCIENCE AND ENGINEERING"
+  },
   {
     "date": "09-08-2025",
     "subject": "Warning regarding unauthorized Fresher party",
@@ -61,7 +67,7 @@
   },
   {
     "date": "05-08-2025",
-    "subject": "For giving Exam of NPTEL courses\\r\\n(a) First step is ENROLLMENT on nptel\\r\\n(b) second step is EXAM REGISTRATION\\r\\nGo through EXAM REGISTRATION process - GUIDELINES",
+    "subject": "For giving Exam of NPTEL courses\n(a) First step is ENROLLMENT on nptel\n(b) second step is EXAM REGISTRATION\nGo through EXAM REGISTRATION process - GUIDELINES",
     "published_by": "ANAND GUPTA, COORDINATOR NPTEL, COMPUTER SCIENCE AND ENGINEERING"
   },
   {
@@ -243,10 +249,6 @@
     "date": "28-07-2025",
     "subject": "PG facilities near NSUT West Campus, Jaffarpur",
     "published_by": ", ACADEMIC SECTION"
-  },
-  {
-    "date": "28-07-2025",
-    "subject": "NSUT ALL CAMPUSES (Students login to your CUMS -https://www.imsnsit.org/imsnsit/ -FIND OUT YOUR ALLOTTED NPTEL course- complete your enrollment process on https://onlinecourses.nptel.ac.in/ [NPTEL ENROLLMENT GUIDELINES-How to enroll?]-LAST DATE TODAY",
-    "published_by": "ANAND GUPTA, COORDINATOR NPTEL, COMPUTER SCIENCE AND ENGINEERING"
   }
 ]
+```

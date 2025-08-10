@@ -1,29 +1,24 @@
 // index.js
 // This file provides a simple CLI to run either ims-scrapper.js or agent-gemini.js
 
-import { execSync } from 'child_process';
+import { scrapeNotices } from './ims-scrapper.js';
+import { formatNotices } from './agent-gemini.js';
 
-const args = process.argv.slice(2);
+async function main() {
+    console.log('Starting IMS scrapper...');
+    const notices = await scrapeNotices();
+    console.log(`Scraped ${notices.length} notices.`);
 
-if (args.length === 0) {
-    console.log('Usage: node index.js <ims|gemini>');
-    process.exit(1);
+    console.log('Starting Gemini formatter...');
+    const formatted = await formatNotices(notices);
+    if (Array.isArray(formatted)) {
+        console.log(`Formatted ${formatted.length} notices.`);
+    } else {
+        console.log('Formatted notices (raw):', formatted);
+    }
+
+    console.log('Final output JSON:');
+    console.log(JSON.stringify(formatted, null, 2));
 }
 
-const scriptMap = {
-    ims: 'ims-scrapper.js',
-    gemini: 'agent-gemini.js',
-};
-
-const script = scriptMap[args[0]];
-if (!script) {
-    console.log('Invalid argument. Use "ims" or "gemini".');
-    process.exit(1);
-}
-
-try {
-    execSync(`node ${script}`, { stdio: 'inherit' });
-} catch (e) {
-    console.error(`Error running ${script}:`, e.message);
-    process.exit(1);
-}
+main();

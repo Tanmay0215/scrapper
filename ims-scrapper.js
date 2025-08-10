@@ -1,7 +1,8 @@
+
 import puppeteer from 'puppeteer';
 import fs from 'fs';
 
-(async () => {
+export async function scrapeNotices() {
   const url = "https://www.imsnsit.org/imsnsit/notifications.php";
   const browser = await puppeteer.launch({ headless: true });
   const page = await browser.newPage();
@@ -28,10 +29,10 @@ import fs from 'fs';
     return data;
   });
 
-
   // Store the JSON data in a file
   fs.writeFileSync('notices.json', JSON.stringify(notices, null, 2), 'utf-8');
   console.log('Scraped data saved to notices.json');
 
   await browser.close();
-})();
+  return notices;
+}
